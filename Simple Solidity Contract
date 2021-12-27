@@ -1,0 +1,30 @@
+pragma solidity 0.5.1;
+
+contract Counter {
+    uint count = 0; 
+    // we can also set the count equal to a value here. 
+    //Then the constructor function is not needed
+    
+    event Increment(uint value);
+
+    event Decrement(uint value);
+    
+    function getCount()  view  public returns(uint) {
+        return count;
+    
+    }
+    
+    //constructor() public {
+    //    count = 0;
+    //}
+
+    function increment() public {
+        count = count + 1; // we can also say count += 1;
+        emit Increment(count);
+    }
+
+    function decrement() public {
+        count = count - 1; // we can also say count -= 1;
+        emit Decrement(count);
+    }
+}
